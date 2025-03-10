@@ -1,4 +1,4 @@
-import InsuranceTable from "@/modules/insurance/components/table/insurance-table";
+import InsuranceTable from "@/modules/insurance/components/table/insurance.table";
 import { useTranslations } from 'next-intl';
 import Link from "next/link";
 

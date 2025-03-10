@@ -1,5 +1,15 @@
 {
   "common": {
     "title": "React insurance portal"
+  },
+  "insurance": {
+    "table": {
+      "title": "Insurance requests",
+      "return": "Back to list"
+    },
+    "create": {
+      "link": "New request",
+      "title": "New Insurance request"
+    }
   }
 }

@@ -1,7 +1,7 @@
-import type IInsuranceFormField from "./insurance.form.field.interface";
+import IBaseFormGeneratorField from "@/shared/components/form-generator/interfaces/base.form.generator.field.interface";
 
 export default interface IInsuranceForm {
     formId: string;
     title: string;
-    fields: IInsuranceFormField[]
+    fields: IBaseFormGeneratorField[]
 }

@@ -1,11 +1,12 @@
 "use client"
 
 import useInsuranceFormStore from "@/modules/insurance/stores/insurance.forms.store";
+import BaseLoaderApi from "@/shared/components/loader/base.loader.api";
 import InsuranceCreateSubmitted from "./insurance.create.submitted";
 import InsuranceCreateSelect from "./insurance.create.select";
 import InsuranceCreateForm from "./insurance.create.form";
-import {useCallback, useMemo, useState} from "react";
-import BaseLoaderApi from "@/shared/components/loader/base.loader.api";
+import {useCallback, useState} from "react";
+import BaseSpinner from "@/shared/components/spinner/base.spinner";
 
 enum CreateStepEnum {
     Select,
@@ -29,7 +30,7 @@ export default function InsuranceCreate() {
     }, [setStep]);
 
     return (
-        <BaseLoaderApi apiAction={getForms} loader={<span>Getting forms...</span>}>
+        <BaseLoaderApi apiAction={getForms} loader={<BaseSpinner className="h-40" />}>
             { step === CreateStepEnum.Select && <InsuranceCreateSelect select={onSelectInsurance} /> }
             { step === CreateStepEnum.Form && <InsuranceCreateForm insurance={insurance} submit={onFormSubmitted} /> }
             { step === CreateStepEnum.Submitted && <InsuranceCreateSubmitted /> }

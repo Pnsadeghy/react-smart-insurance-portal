@@ -36,7 +36,7 @@ export default function BaseLoaderApi({
         setStatus(Status.Loaded);
         setLoaded(true);
       })
-      .catch(() => {
+      .catch((e) => {
         setStatus(Status.Failed);
       });
   }, [apiAction]);

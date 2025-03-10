@@ -1,11 +1,12 @@
-import { create } from 'zustand';
+import type IInsuranceForm from "@/modules/insurance/interfaces/insurance.form.interface";
 import insuranceApi from "@/modules/insurance/services/insurance.api";
+import { create } from 'zustand';
 
 interface InsuranceFormState {
     loaded: boolean;
-    insurances: object[];
-    getInsurances: () => Promise<object[]>;
-    getInsuranceForm: (id: string) => object;
+    insurances: IInsuranceForm[];
+    getInsurances: () => Promise<IInsuranceForm[]>;
+    getInsuranceForm: (id: string) => IInsuranceForm|undefined|null;
 }
 
 const useInsuranceFormStore = create<InsuranceFormState>((set, get) => ({
@@ -18,14 +19,18 @@ const useInsuranceFormStore = create<InsuranceFormState>((set, get) => ({
         }
         try {
             const response = await insuranceApi.forms();
-            console.log(response);
-            resolve(get().insurances);
+            set({
+                insurances: response.data as IInsuranceForm[],
+                loaded: true
+            })
+            resolve(response.data as IInsuranceForm[]);
         } catch (e) {
-            console.log(e);
             reject(e);
         }
     }),
-    getInsuranceForm: (id: string) => ({})
+    getInsuranceForm: (id: string) => {
+        return get().insurances.find((insurance) => insurance.formId === id);
+    }
 }));
 
 export default useInsuranceFormStore;

@@ -1,10 +1,10 @@
-import InsuranceFormFieldTypeEnum from "@/modules/insurance/enum/insurance.form.field.type.enum";
+import BaseFormGeneratorFieldTypeEnum from "../enum/base.form.generator.field.type.enum";
 
-export default interface IInsuranceFormField {
+export default interface IBaseFormGeneratorField {
     id: string;
     label: string;
-    type: InsuranceFormFieldTypeEnum;
-    fields?: IInsuranceFormField[];
+    type: BaseFormGeneratorFieldTypeEnum;
+    fields?: IBaseFormGeneratorField[];
     required?: boolean;
     options?: string[];
     dynamicOptions?: {
@@ -18,8 +18,8 @@ export default interface IInsuranceFormField {
         "value": unknown;
     };
     validation?: {
-      min?: number;
-      max?: number;
-      pattern?: string;
+        min?: number;
+        max?: number;
+        pattern?: string;
     };
 }

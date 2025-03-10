@@ -1,4 +1,4 @@
-enum InsuranceFormFieldTypeEnum {
+enum BaseFormGeneratorFieldTypeEnum {
     Group = "group",
     Text = "text",
     Number = "number",
@@ -8,4 +8,4 @@ enum InsuranceFormFieldTypeEnum {
     Checkbox = "checkbox",
 }
 
-export default InsuranceFormFieldTypeEnum;
+export default BaseFormGeneratorFieldTypeEnum;

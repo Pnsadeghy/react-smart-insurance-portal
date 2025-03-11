@@ -20,7 +20,7 @@ export default function BaseTableSearch({onSearch}: Readonly<componentProps>) {
                 value={query}
                 onChange={handleSearch}
                 placeholder="Search..."
-                className="p-2 border rounded w-full"
+                className="p-2 border border-gray-300 bg-white rounded w-full"
             />
         </div>
     );

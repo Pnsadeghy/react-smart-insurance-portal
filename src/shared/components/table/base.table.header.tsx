@@ -19,7 +19,7 @@ export default function BaseTableHeader({columns, onSort}: Readonly<componentPro
     };
 
     return (
-        <div className="sticky top-0 bg-gray-200 z-10 table w-full table-fixed border-b">
+        <div className="sticky top-0 bg-gray-200 z-10 md:table hidden w-full table-fixed border-b border-gray-400">
             <div className="table-header-group">
                 <div className="table-row">
                     {columns.map((column) => (

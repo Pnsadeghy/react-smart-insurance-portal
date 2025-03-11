@@ -7,7 +7,7 @@ interface componentProps {
 
 export default function BaseSectionTitle({title, children}: Readonly<componentProps>) {
     return (
-        <div className="flex items-center justify-between pb-2 border-b border-gray-200" >
+        <div className="flex items-center justify-between pb-2 border-b border-gray-200 mb-4" >
             <h3 className="font-semibold" >{title}</h3>
             <div>
                 {children}

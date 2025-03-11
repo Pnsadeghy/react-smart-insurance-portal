@@ -8,15 +8,16 @@ interface componentProps {
 export default function BaseTableRow({row, columns, onSelect, isSelected}: Readonly<componentProps>) {
     return (
         <div
-            className={`table-row hover:bg-gray-100 ${isSelected ? "bg-blue-100" : ""}`}
+            className={`md:table-row hover:bg-gray-100 ${isSelected ? "bg-blue-100" : ""}`}
             onClick={() => onSelect(row.id)}
         >
             {columns.map((column) => (
-                <div key={`${row.id}-${column}`} className="table-cell p-2 border-b">
+                <div key={`${row.id}-${column}`} className="md:table-cell block md:py-2 px-2 py-1 md:border-b border-gray-300">
+                    <span className="md:hidden text-gray-600" >{column}: </span>
                     {row[column]?.toString() || ""}
                 </div>
             ))}
-            <div className="table-cell p-2 border-b">
+            <div className="md:table-cell block p-2 border-b border-gray-300">
                 <input
                     type="checkbox"
                     checked={isSelected}

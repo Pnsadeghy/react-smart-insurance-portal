@@ -49,7 +49,7 @@ export default function BaseTable({tableData}: Readonly<componentProps>) {
     return (
         <div className="w-full">
             <BaseTableSearch onSearch={handleSearch} />
-            <div className="overflow-hidden border rounded shadow">
+            <div className="overflow-hidden border rounded border-gray-400">
                 <BaseTableHeader columns={tableData.columns} onSort={handleSort} />
                 <div className="overflow-y-auto" style={{ maxHeight: "400px" }}>
                     <div className="table w-full table-fixed">

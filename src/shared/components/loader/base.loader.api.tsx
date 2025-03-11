@@ -4,10 +4,11 @@ import React, { useCallback, useEffect, useState } from 'react';
 import BaseLoader from './base.loader';
 
 interface componentProps {
-  apiAction: () => Promise<unknown>;
+  apiAction: () => Promise<{data: object}>;
   children: React.ReactNode;
   loader: React.ReactNode;
   loading?: boolean;
+  success?: (data: object) => void;
 }
 
 enum Status {
@@ -21,6 +22,7 @@ export default function BaseLoaderApi({
   children,
   loader,
   loading,
+  success
 }: componentProps) {
   const [status, setStatus] = useState<Status>(Status.Loading);
   const [loaded, setLoaded] = useState<boolean>(false);
@@ -32,9 +34,12 @@ export default function BaseLoaderApi({
   const callApi = useCallback(() => {
     setStatus(Status.Loading);
     apiAction()
-      .then(() => {
+      .then((res: {data: object}) => {
         setStatus(Status.Loaded);
         setLoaded(true);
+        if (success) {
+          success(res.data);
+        }
       })
       .catch((e) => {
         setStatus(Status.Failed);

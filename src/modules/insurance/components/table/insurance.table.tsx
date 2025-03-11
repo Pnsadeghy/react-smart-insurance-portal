@@ -1,7 +1,10 @@
-import BaseDynamicTable from "@/shared/components/dynamic-table/base.dynamic.table";
+"use client"
+
+import insuranceApi from "@/modules/insurance/services/insurance.api";
+import BaseTableLoader from "@/shared/components/table/base.table.loader";
 
 export default function InsuranceTable() {
     return (
-        <BaseDynamicTable />
+        <BaseTableLoader api={insuranceApi.index} />
     );
 }

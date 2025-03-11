@@ -29,10 +29,14 @@ export default function InsuranceCreate() {
         setStep(CreateStepEnum.Submitted);
     }, [setStep]);
 
+    const onBackToList = useCallback(() => {
+        setStep(CreateStepEnum.Select);
+    }, [setStep]);
+
     return (
         <BaseLoaderApi apiAction={getForms} loader={<BaseSpinner className="h-40" />}>
             { step === CreateStepEnum.Select && <InsuranceCreateSelect select={onSelectInsurance} /> }
-            { step === CreateStepEnum.Form && <InsuranceCreateForm insurance={insurance} submit={onFormSubmitted} /> }
+            { step === CreateStepEnum.Form && <InsuranceCreateForm insurance={insurance} submit={onFormSubmitted} back={onBackToList} /> }
             { step === CreateStepEnum.Submitted && <InsuranceCreateSubmitted /> }
         </BaseLoaderApi>
     )

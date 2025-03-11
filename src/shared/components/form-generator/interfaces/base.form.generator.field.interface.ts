@@ -1,3 +1,4 @@
+import type IBaseFormGeneratorFieldDynamicOptions from "./base.form.generator.field.dynamic.options.interface";
 import BaseFormGeneratorFieldTypeEnum from "../enum/base.form.generator.field.type.enum";
 
 export default interface IBaseFormGeneratorField {
@@ -7,11 +8,7 @@ export default interface IBaseFormGeneratorField {
     fields?: IBaseFormGeneratorField[];
     required?: boolean;
     options?: string[];
-    dynamicOptions?: {
-        dependsOn?: string;
-        endpoint: string;
-        method: string;
-    };
+    dynamicOptions?: IBaseFormGeneratorFieldDynamicOptions;
     visibility?: {
         "dependsOn": string;
         "condition": string;

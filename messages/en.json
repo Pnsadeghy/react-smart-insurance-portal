@@ -1,6 +1,12 @@
 {
   "common": {
-    "title": "React insurance portal"
+    "title": "React insurance portal",
+    "button": {
+      "change": "Change"
+    }
+  },
+  "home": {
+    "return": "Return to home page"
   },
   "insurance": {
     "table": {
@@ -9,7 +15,9 @@
     },
     "create": {
       "link": "New request",
-      "title": "New Insurance request"
+      "title": "New Insurance request",
+      "submit": "Send Insurance request",
+      "message": "Your request has been successfully submitted."
     }
   }
 }

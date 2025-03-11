@@ -4,9 +4,11 @@ import apiInstance from "@/shared/utils/api.utils";
 const insuranceApi: {
     index: (params?: object) => Promise<{data: BaseDynamicTableDataInterface}>;
     forms: () => Promise<{data: object[]}>;
+    submit: (data: object) => Promise<unknown>;
 } = {
     index: (params: object = {}) => apiInstance.get(process.env.INSURANCE_LIST_API!, {params}),
-    forms: () => apiInstance.get(process.env.INSURANCE_FORMS_API!)
+    forms: () => apiInstance.get(process.env.INSURANCE_FORMS_API!),
+    submit: (data: object) => apiInstance.post(process.env.INSURANCE_REQUEST_STORE_API!, data)
 }
 
 export default insuranceApi
